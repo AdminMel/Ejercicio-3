@@ -31,7 +31,7 @@ public class MascotasController {
     @PostMapping("/mascotas/agregar")
     public String nuevaMascotaAgregar(@ModelAttribute("mascota") Mascota mascota) {
         mascotaService.save(mascota);
-        return "redirect:/mascotas";
+        return "redirect:/";
     }
     //Eliminar una mascota
     //1. Mostrar la mascota en el formulario
@@ -42,14 +42,14 @@ public class MascotasController {
             model.addAttribute("mascota", mascota);
             return "mascotas-eliminar";
         }else{
-            return "redirect:/mascotas";
+            return "redirect:/";
         }
     }
     //2. Eliminar la mascota y redireccionar al listado
     @PostMapping("/mascotas/eliminar")
     public String eliminarMascota(@ModelAttribute("mascota") Mascota mascota) {
         mascotaService.delete(mascota.getId());
-        return "redirect:/mascotas";
+        return "redirect:/";
     }
     //Actualizar una mascota
     //1. Mostrar el formulario
@@ -60,14 +60,15 @@ public class MascotasController {
             model.addAttribute("mascota", mascota);
             return "mascotas-actualizar";
         }else{
-            return "redirect:/mascotas";
+            return "redirect:/";
         }
     }
     //2. Actualizar y redireccionar al listado
     @PostMapping("/mascotas/actualizar")
     public String actualizarMascota(@ModelAttribute("mascota") Mascota mascota) {
         mascotaService.update(mascota);
-        return "redirect:/mascotas";
+        return "redirect:/";
     }
 }
+
 
