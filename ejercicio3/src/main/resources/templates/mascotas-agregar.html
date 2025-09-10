@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Mascotas - Nueva</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        <h1>Ejemplo de App MONOLÍTICA</h1>
+        <h2>Nueva Mascota</h2>
+            <form th:action="@{/mascotas/agregar}" th:object="${mascota}" method="post">
+                <div class="mb-3">
+                    <label for="nombre" class="form-label">Nombre</label>
+                    <input th:field="*{nombre}" type="text" class="form-control" id="nombre" placeholder="Ingrese el nombre" required>
+                </div>
+                <div class="mb-3">
+                    <label for="edad" class="form-label">Edad</label>
+                    <input th:field="*{edad}" type="number" class="form-control" id="edad" placeholder="Ingrese la edad" required>
+                </div>
+                <div class="mb-3">
+                    <label for="observaciones" class="form-label">Observaciones</label>
+                    <input th:field="*{observaciones}" type="text" class="form-control" id="observaciones" placeholder="Ingrese las observaciones">
+                </div>
+                <button type="submit" class="btn btn-success">Agregar</button>
+                <a th:href="@{/mascotas}" class="btn btn-danger">Cancelar</a>
+            </form>
+    </div>
+</body>
+</html>
