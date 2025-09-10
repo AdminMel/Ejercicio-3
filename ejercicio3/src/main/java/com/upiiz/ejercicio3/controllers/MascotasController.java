@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 public class MascotasController {
     //Mostrar el listado
     MascotaService mascotaService = new MascotaService();
-    @GetMapping("/mascotas")
+    @GetMapping("/")
     public String mascotas(Model model) {
         model.addAttribute("mascotas", mascotaService.findAll());
         return "mascotas-listado";
@@ -70,3 +70,4 @@ public class MascotasController {
         return "redirect:/mascotas";
     }
 }
+
